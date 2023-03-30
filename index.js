@@ -1,13 +1,32 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const dispNumber = {};
+  
+  for (const number of array) {
+    const newNumber = target - number;
+    if (newNumber in dispNumber) return true;
+    dispNumber[number] = true;
+  }
+
+
+
+return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  
 */
 
 /* 
   Add your pseudocode here
+  create an object to keep track of numbers we've already displayed
+  iterate through each number in the array
+    for the current number, identify a newNumber that adds to the target (newNumber = target - num)
+    check if any key on our object is the newNumber
+      if so, return true
+      otherwise, add that number to the object
+  if we reach the end of the array, return false
 */
 
 /*
